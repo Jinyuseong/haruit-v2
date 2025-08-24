@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Tailwind v4에서는 CSS에서 플러그인 로드 가능 */
+@plugin "daisyui";
