@@ -1,32 +1,48 @@
----
+# 하루잇 v2
 
-## 🚀 진행 상황 (2025-08-25 기준)
+## 소개
+하루잇 v2는 공부·운동 습관을 게임처럼 만들어주는 몰입 습관 앱입니다.  
+공부/운동을 완료하면 경험치와 코인을 얻고, 내 방과 아바타를 꾸밀 수 있습니다.
 
-### ✅ 환경 세팅
-- Mac + Homebrew + Node.js (nvm LTS v22) 설치
-- VS Code 개발환경 세팅 완료
+## 주요 기능
+- 회원가입/로그인 (MVP: 자체 계정)
+- 공부/운동 모드 및 타이머
+- 할 일(TaskList) 관리
+- 캐릭터룸(방) 및 애니메이션
+- 운동 기록(시간, 칼로리, 거리)
+- 통계 시각화(주간/월간)
+- 보상 시스템(코인/경험치)
+- 방/아바타 커스터마이징
+- 친구 방 방문(로드맵)
+- PWA 지원(로드맵)
 
-### ✅ 웹앱 (apps/web)
-- React + Vite + TailwindCSS + DaisyUI(v4) 세팅
-- 라우터 구성
-  - `/login`, `/signup` (AuthGuard 적용)
-  - `/` (홈), `/study` (공부), `/workout` (운동), `/shop` (상점)
-- 상단바: 앱 제목 + 코인 배지
-- 하단바: 앱 스타일 탭바 (홈 / 공부 / 운동 / 상점)
-- 기능
-  - 공부/운동 타이머 (완료 시 코인 보상)
-  - 접속 시간 보상 (5분당 1코인, 일일 최대 10코인)
-  - 상점 페이지 기본 UI (아이템 카드 뼈대)
+## 기술 스택
+- **Frontend**: React, TypeScript, Tailwind CSS, DaisyUI, react-icons
+- **Backend**: Node.js, Express, Prisma ORM
+- **Database**: PostgreSQL
+- **기타**: JWT 인증, HTTPS, DBeaver(DB 관리)
 
-### ⏭️ 다음 목표
-- 상점 구매/인벤토리 기능 (코인 차감 및 아이템 저장)
-- 캐릭터 방 꾸미기 (배경/데코 적용)
-- 보상 피드백 UI (토스트, 애니메이션)
-- 서버(NestJS) 연동 후 DB 저장
+## 설치 및 실행
 
----
+```bash
+# 의존성 설치
+npm install
 
-## 👨‍💻 개발자 노트
-- 현재 보상/코인 시스템은 `localStorage` 기반 (임시)
-- 전역 상태 관리(Context/Zustand 등)는 추후 적용 예정
-- DaisyUI 커스텀 테마로 앱다운 UI 실험 중
+# 개발 서버 실행 (예시)
+npm run dev
+```
+
+## 폴더 구조
+
+```
+apps/web/           # 프론트엔드 코드
+apps/api/           # 백엔드 코드
+prisma/             # Prisma 스키마 및 마이그레이션
+public/             # 정적 파일 및 이미지
+```
+
+## 문서
+- [PRD 문서](./PRD.md)
+
+## 기여
+PR 및 이슈
