@@ -8,23 +8,30 @@ export default function Study() {
   const [action, setAction] = useState<"idle" | "study">("idle")
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", "pastel")
+    document.documentElement.setAttribute("data-theme", "app")
     // 페이지 떠날 때 타이머 자동 정지
     return () => setStopKey(k => k + 1)
   }, [])
 
   return (
-    <div className="flex flex-col gap-6">
-      <CharacterRoom action={action === "study" ? "study" : "idle"} equipped={{
-        bg: "/assets/room/bg_default.png",
-        decoLeft: "/assets/room/deco_plant.png",
-        decoRight: "/assets/room/deco_shelf.png",
-      }} />
+    <div className="space-y-6">
+      {/* 캐릭터룸 */}
+      <div className="pt-2">
+        <CharacterRoom 
+          action={action === "study" ? "study" : "idle"} 
+          equipped={{
+            bg: "default",
+            deco: "plant",
+          }} 
+        />
+      </div>
 
+      {/* 타이머와 할일 목록 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="card bg-base-100 shadow-xl lg:col-span-2">
-          <div className="card-body">
-            <h3 className="card-title">공부 타이머</h3>
+        {/* 공부 타이머 */}
+        <div className="card bg-base-100 shadow-lg lg:col-span-2">
+          <div className="card-body p-6">
+            <h3 className="card-title text-xl mb-4">공부 타이머</h3>
             <Timer
               title="공부 타이머"
               defaultMinutes={25}
@@ -39,10 +46,14 @@ export default function Study() {
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h3 className="card-title">공부 할 일</h3>
-            <TaskList storageKey="tasks-study" defaultTasks={["노트 정리", "복습 25분", "문제 10개"]} />
+        {/* 공부 할 일 */}
+        <div className="card bg-base-100 shadow-lg">
+          <div className="card-body p-6">
+            <h3 className="card-title text-xl mb-4">공부 할 일</h3>
+            <TaskList 
+              storageKey="tasks-study" 
+              defaultTasks={["노트 정리", "복습 25분", "문제 10개"]} 
+            />
           </div>
         </div>
       </div>
